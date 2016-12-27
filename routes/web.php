@@ -35,10 +35,15 @@ Route::get('/broadcast', function() {
 });
 
 
+Route::get('/send', 'PusherController@send');
+Route::get('/receive', 'PusherController@receive');
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 
 Route::get('/bridge', function() {
     $pusher = App::make('pusher');
