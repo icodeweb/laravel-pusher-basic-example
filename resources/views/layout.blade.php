@@ -8,6 +8,7 @@
       <meta name="author" content="">
       <title>Laravel & Pusher basic example</title>
       <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="css/styles.css">
    </head>
    <body>
       <nav class="navbar navbar-default navbar-fixed-top">
@@ -23,13 +24,13 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                <ul class="nav navbar-nav">
-                  <li><a href="send">Send Message</a></li>
-                  <li class="active"><a href="receive">Receive Message</a></li>
+                  <li class="{{ Request::is('', 'send') ? 'active' : ''}}"><a href="send">Send Message</a></li>
+                  <li class="{{ Request::is('', 'receive') ? 'active' : ''}}"><a href="receive">Receive Message</a></li>
                </ul>
             </div>
          </div>
       </nav>
-      <div class="container" style="margin-top: 70px;padding: 0px;">
+      <div class="container main">
       @yield('content')
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

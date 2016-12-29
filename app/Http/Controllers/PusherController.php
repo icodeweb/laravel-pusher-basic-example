@@ -7,12 +7,17 @@ use Vinkla\Pusher\Facades\Pusher;
 
 class PusherController extends Controller
 {
-    public function send()
+    public function form()
+    {
+        return view('send');
+    }
+
+    public function send(Request $request)
     {    	
-	    Pusher::trigger( 'test-channel',
-	                      'test-event', 
-	                      array('text' => 'Preparing the Pusher Laracon.eu workshop!'));    	
-    	return view('send');
+	    Pusher::trigger( 'laravel-channel',
+	                      'my-event', 
+	                      array('message' => $request->message));    	
+    	return back();
     }
 
     public function receive()
